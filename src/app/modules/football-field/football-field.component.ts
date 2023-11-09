@@ -107,12 +107,13 @@ export class FootballFieldComponent {
     svg
       .append('g')
       .append('svg:image')
-      .attr('xlink:href', 'assets/images/app-logo-header.svg')
+      .attr('xlink:href', 'assets/tx.png')
       .attr('class', 'football-field-logo')
       .attr('width', FieldConstants.logoWidth)
       .attr('height', FieldConstants.logoWidth)
       .attr('x', FieldConstants.logoX)
-      .attr('y', FieldConstants.logoY);
+      .attr('y', FieldConstants.logoY)
+    
 
     this.markField(svg);
   }
