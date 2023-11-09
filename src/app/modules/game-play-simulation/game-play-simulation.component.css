@@ -1,0 +1,106 @@
+
+figure.field-rectangle {
+	margin-bottom: 0;
+	border: 0.5rem solid white;
+
+	&.football-field-use {
+		border: 0.5rem solid #a71930;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.football-field-container {
+	width: 373.5px;
+	height: 720px;
+
+	.football-field-background {
+		transform: scale(7, 6);
+
+		.football-field-logo {
+			height: 0.6875rem;
+			width: 0.6875rem;
+			transform: translate(21px, 65.5px) rotate(270deg);
+		}
+
+		.football-field-texans {
+			font-family: TexFont, serif;
+			fill: white;
+			font-size: 0.5rem;
+			stroke: #03202f;
+			stroke-width: 0.2rem;
+		}
+
+		[class^='football-field-numbers-'] {
+			font-family: Klavika, serif;
+			fill: white;
+			font-size: 0.1875rem;
+		}
+
+		.football-field-boundaries {
+			stroke-width: 1.07;
+			stroke: none;
+			fill: #036602;
+		}
+
+		.football-field-endzones,
+		.football-field-arrows,
+		[class^='football-field-hashMarks-'] {
+			stroke-width: 1.07;
+			stroke: none;
+			fill: white;
+		}
+	}
+
+	.kick-attempt-text {
+		fill: white;
+		text-anchor: middle;
+		font-weight: 700;
+	}
+
+	.kick-attempt-lines {
+		stroke: #a71930;
+		stroke-width: 2px;
+	}
+
+	.kick-attempt-arrow-marker {
+		fill: #a71930;
+	}
+}
+
+@media print {
+	.football-field-container {
+		.football-field-background {
+			.football-field-texans {
+				display: none;
+			}
+
+			.football-field-logo {
+				display: none;
+			}
+
+			.football-field-boundaries {
+				fill: #c9c9c9 !important;
+			}
+		}
+	}
+}
+
+.team-photo {
+	margin-right: 24px;
+	margin-left: 24px;
+	position: relative;
+	overflow: hidden;
+	height: 40px;
+
+	max-height: 40%;
+}
+.small-table-Conatiner {
+	margin: auto;
+	width: 90%;
+
+	padding: 10px;
+	text-align: center;
+}

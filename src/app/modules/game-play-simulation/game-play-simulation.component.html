@@ -1,0 +1,165 @@
+<div class="page-header-title-wrapper">
+  <div class="page-header-title" style="margin: 15px">Game Play Simulation</div>
+</div>
+<div>
+  <form class="lui-form">
+    <div container-title>
+      {{ nameHomeTeam }}
+      <span>
+        <img class="team-photo" [src]="imageSrcHome" alt="" />
+      </span>
+      <span *ngIf="nameHomeTeam">vs</span>
+      <span>
+        <img
+          class="team-photo"
+          [src]="imageSrcAway"
+          alt=""
+          style="transform: scaleX(-1)"
+        />
+      </span>
+      {{ nameAwayTeam }}
+    </div>
+    <!-- Block for filters -->
+    <div container-filters class="row"></div>
+    <div container-body>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="small-table-Conatiner">
+            <div>
+              <h6>
+                {{ nameHomeTeam }}
+              </h6>
+            </div>
+            <!-- <lui-table
+              [data]="SelectedGamePlay?.homeTrackingData"
+              [paging]="false"
+              #j
+              [ngClass]="'small-table-Conatiner'"
+            > -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th tableSortBy="jerseyNumber" defaultSort="asc">Number</th>
+                  <th>Name</th>
+                  <th>Position</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let player of SelectedGamePlay?.homeTrackingData">
+                  <td>
+                    {{ player?.jerseyNumber }}
+                  </td>
+                  <td>
+                    {{ player?.displayName }}
+                  </td>
+                  <td>
+                    {{ player?.position }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- </lui-table> -->
+          </div>
+        </div>
+
+        <div class="col-sm-8">
+          <div>
+            <div>
+              <app-football-field [svg]="svg"></app-football-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="small-table-Conatiner">
+            <div>
+              <h6>
+                {{ nameAwayTeam }}
+              </h6>
+            </div>
+            <!-- <lui-table [data]="SelectedGamePlay?.awayTrackingData" [paging]="false" #y [ngClass]="'small-table-Conatiner'"> -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th tableSortBy="jerseyNumber" defaultSort="asc">Number</th>
+                  <th>Name</th>
+                  <th>Position</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let player of SelectedGamePlay?.awayTrackingData">
+                  <td>
+                    {{ player?.jerseyNumber }}
+                  </td>
+                  <td>
+                    {{ player?.displayName }}
+                  </td>
+                  <td>
+                    {{ player?.position }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- </lui-table> -->
+          </div>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Select Play</th>
+            <th>Home</th>
+            <th>Visitor</th>
+            <th>Final Score</th>
+            <th>Date</th>
+            <th>Quarter</th>
+            <th>Clock</th>
+            <th>Current Score</th>
+            <th>Down</th>
+            <th>Distance</th>
+            <th>Play Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of GamePlays">
+            <td>
+              <!-- <lui-button appearance="primary" (click)="selectChangeHandler(row.name)"> Play</lui-button> -->
+            </td>
+            <td>
+              {{ row.schedule.homeDisplayName }}
+            </td>
+
+            <td>
+              {{ row.schedule.visitorDisplayName }}
+            </td>
+            <td>
+              {{ row.schedule.score.homeTeamScore.pointTotal }} -
+              {{ row.schedule.score.visitorTeamScore.pointTotal }}
+            </td>
+            <td>
+              {{ row.schedule.gameDate }}
+            </td>
+            <td>
+              {{ row.play.quarter }}
+            </td>
+            <td>
+              {{ row.play.gameClock }}
+            </td>
+            <td>
+              {{ row.play.homeScore }}
+            </td>
+            <td>
+              {{ row.play.down }}
+            </td>
+            <td>
+              {{ row.play.absoluteYardlineNumber }}
+            </td>
+            <td>
+              {{ row.play.playDescription }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
